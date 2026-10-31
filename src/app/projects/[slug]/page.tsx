@@ -125,22 +125,10 @@ export default function CaseStudyPage({ params }: PageProps) {
 
               {/* Action Links */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                {project.links.live && (
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button
-                      variant="primary"
-                      size="md"
-                      rightIcon={<ArrowUpRight className="h-4 w-4" />}
-                      className="font-mono"
-                    >
-                      Live Demo
-                    </Button>
-                  </a>
-                )}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] border border-border bg-surface-2 text-xs font-medium text-text-tertiary">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-500/80" />
+                  Live Demo Coming Soon
+                </span>
 
                 {project.links.github && (
                   <a

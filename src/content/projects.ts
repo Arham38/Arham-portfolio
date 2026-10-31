@@ -85,8 +85,7 @@ export const PROJECTS: Project[] = [
       ci: "passing",
     },
     links: {
-      live: "https://jableather.vercel.app",
-      github: "https://github.com/Arham38/jab-leather",
+      github: "https://github.com/Arham38/JABLEATHER.git",
       caseStudy: "/projects/jab-leather",
     },
     metrics: [
@@ -220,8 +219,7 @@ export const PROJECTS: Project[] = [
       ci: "passing",
     },
     links: {
-      live: "https://codecraft-lms.vercel.app",
-      github: "https://github.com/Arham38/codecraft-lms",
+      github: "https://github.com/Arham38/LMS.git",
       caseStudy: "/projects/codecraft-lms",
     },
     metrics: [
@@ -329,25 +327,24 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "sme-erp",
-    title: "SME ERP Solution",
+    slug: "shophub",
+    title: "ShopHub",
     featured: false,
     status: "completed",
-    category: "ENTERPRISE · FINTECH",
+    category: "E-COMMERCE · MERN",
     role: "Full-Stack Engineer",
     timeline: "2024 – 2025",
     outcome:
-      "Modular inventory, payroll, and invoicing engine for small-medium enterprises. Reduced reconciliation overhead by 65% across multi-branch retail operations.",
-    tech: ["React", "Node.js", "MongoDB", "Redis", "Stripe"],
+      "Full-stack MERN e-commerce store with product catalog, category & brand filtering, shopping cart, favorites, and secure checkout.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
     qualityBadges: {
       tests: "56 passed",
       coverage: "91%",
       ci: "passing",
     },
     links: {
-      live: "https://sme-erp.vercel.app",
-      github: "https://github.com/Arham38/sme-erp",
-      caseStudy: "/projects/sme-erp",
+      github: "https://github.com/Arham38/MERN-ECommernce-Store.git",
+      caseStudy: "/projects/shophub",
     },
     metrics: [
       { label: "Reconciliation Saved", value: "65%" },

@@ -25,20 +25,24 @@
 - Shopify-style admin (KPI dashboard, bulk actions, 8-section product editor with SEO preview, order management).
 - Supabase Auth, admin-only RBAC, PostgreSQL RLS.
 - Tested with Vitest and Playwright.
+- GitHub: https://github.com/Arham38/JABLEATHER.git
 - Tech: React, Node, Express, Supabase, PostgreSQL, RLS, Vitest, Playwright.
 
 ### 2. CodeCraft Academy LMS
 - Interactive course platform with anti-cheat quizzes, attendance, and gradebook.
 - JWT, RBAC, Zod, Helmet, rate limiting.
+- GitHub: https://github.com/Arham38/LMS.git
 - Tech: React, Vite, Tailwind, Node, Express, MongoDB, Jest, Playwright.
 
-### 3. SME ERP
-- Enterprise resource planning solution with 8 modules, 40+ REST APIs, and RBAC.
-- Tech: React, Node, Express, MongoDB, MERN.
+### 3. ShopHub (MERN E-Commerce Store)
+- Full-stack MERN e-commerce store with product catalog, category & brand filtering, shopping cart, favorites, and secure checkout.
+- GitHub: https://github.com/Arham38/MERN-ECommernce-Store.git
+- Tech: React, Node, Express, MongoDB, Tailwind.
 
 ### 4. AuthentixAI (Deepfake Analyzer)
 - Final Year Project (FYP), team of 3, IN PROGRESS.
 - Deepfake video and audio analysis.
+- GitHub: https://github.com/Arham38/authentix-ai
 - Tech: Next.js, FastAPI, MongoDB, PyTorch (planned).
 
 ## Skills
