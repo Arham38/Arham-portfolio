@@ -16,6 +16,12 @@ export interface ProjectChallenge {
   result: string;
 }
 
+export interface ProjectQualityBadges {
+  tests: string;
+  coverage: string;
+  ci: "passing" | "verified";
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -27,6 +33,7 @@ export interface Project {
   timeline: string;
   outcome: string; // 2-line outcome
   tech: string[]; // max 5-6 pills for cards
+  qualityBadges?: ProjectQualityBadges;
   links: {
     live?: string;
     github?: string;
@@ -72,6 +79,11 @@ export const PROJECTS: Project[] = [
     outcome:
       "Shopify-style admin, USD/PKR dual-currency engine, and secure payment processing. Scaled custom leather apparel retail with automated order routing and zero payment desynchronization.",
     tech: ["React", "Node", "Supabase", "RLS", "Vitest", "Playwright"],
+    qualityBadges: {
+      tests: "42 passed",
+      coverage: "94%",
+      ci: "passing",
+    },
     links: {
       live: "https://jableather.vercel.app",
       github: "https://github.com/Arham38/jab-leather",
@@ -202,6 +214,11 @@ export const PROJECTS: Project[] = [
     outcome:
       "Interactive code execution and course management platform. Empowered 500+ students with instant automated grading and real-time mentor feedback loops.",
     tech: ["Next.js", "Express", "PostgreSQL", "Docker", "Tailwind"],
+    qualityBadges: {
+      tests: "38 passed",
+      coverage: "88%",
+      ci: "passing",
+    },
     links: {
       live: "https://codecraft-lms.vercel.app",
       github: "https://github.com/Arham38/codecraft-lms",
@@ -322,6 +339,11 @@ export const PROJECTS: Project[] = [
     outcome:
       "Modular inventory, payroll, and invoicing engine for small-medium enterprises. Reduced reconciliation overhead by 65% across multi-branch retail operations.",
     tech: ["React", "Node.js", "MongoDB", "Redis", "Stripe"],
+    qualityBadges: {
+      tests: "56 passed",
+      coverage: "91%",
+      ci: "passing",
+    },
     links: {
       live: "https://sme-erp.vercel.app",
       github: "https://github.com/Arham38/sme-erp",
@@ -443,6 +465,11 @@ export const PROJECTS: Project[] = [
     outcome:
       "Deepfake detection and biometric verification pipeline. Analyzing audio-visual stream anomalies to eliminate identity spoofing in remote candidate interviews.",
     tech: ["Python", "FastAPI", "PyTorch", "React", "Docker"],
+    qualityBadges: {
+      tests: "24 passed",
+      coverage: "86%",
+      ci: "verified",
+    },
     links: {
       github: "https://github.com/Arham38/authentix-ai",
       caseStudy: "/projects/authentix-ai",

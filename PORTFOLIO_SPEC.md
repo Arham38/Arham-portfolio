@@ -312,10 +312,44 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 11. Complete Developer Portfolio Roadmap Status
+## 11. Heavy Differentiators (Phase 5)
+
+### 1. GitHub Velocity & Heatmap (`src/components/github/github-section.tsx`)
+- **52-Week Contribution Grid**: 364-day heatmap matching dark-first tokens (empty `--surface-2` to max `#6C63FF`), complete with hover tooltips displaying exact commit counts and dates.
+- **Pinned Production Repos**: 3 live cards via `/api/github` (with 1-hour ISR caching and fallback resilience) displaying real stars, forks, language dots, and direct GitHub links.
+
+### 2. Quality & Verification Badges on Project Cards
+- High-signal test metric pill rows on featured and grid project cards:
+  - `tests: 42 passed`
+  - `coverage: 94%`
+  - `CI: passing` (GitHub Actions automated pipeline indicators)
+
+### 3. Engineering Notes & MDX Blog (`/blog` & `/blog/[slug]`)
+- **4 Deep-Dive Articles** ([`src/content/blog.ts`](file:///d:/PortFolio-Arham/src/content/blog.ts)):
+  1. *Enforcing Multi-Tenant Row Level Security in PostgreSQL & Supabase*
+  2. *Preventing Floating-Point Financial Drift in Dual-Currency E-Commerce*
+  3. *Hardening Sandboxed Docker Micro-Containers for Untrusted Code Execution*
+  4. *End-to-End Regression Testing with Playwright in GitHub Actions*
+- **Features**: Estimated reading times, table of contents (TOC) with anchor jump navigation, copyable code blocks with language indicators, and responsive Next/Prev navigation.
+
+### 4. Interactive Command Palette (`Ctrl+K` / `Cmd+K`)
+- Powered by `cmdk` in [`src/components/command-palette/command-palette.tsx`](file:///d:/PortFolio-Arham/src/components/command-palette/command-palette.tsx).
+- Global keyboard listener (`Ctrl+K` / `⌘K`) and accessible header search button.
+- Instant fuzzy navigation across page sections, case studies, engineering notes, direct email copying, and theme toggling.
+
+### 5. Inline Resume Viewer Modal (`src/components/resume/resume-modal.tsx`)
+- Accessible PDF preview modal with download button, external tab launch, and copy-link action.
+
+### 6. AI Portfolio Assistant Bubble (`src/components/chatbot/ai-chat-bubble.tsx`)
+- Floating bottom-right assistant bubble with pre-indexed knowledge of Arham's tech stack, JAB LEATHER architecture, PostgreSQL RLS security, and internship availability.
+
+---
+
+## 12. Complete Developer Portfolio Roadmap Status
 
 - [x] **Phase 0: Design System & Tokens** (Dark-first, CSS variables, single accent `#6C63FF`, JetBrains Mono / Space Grotesk, Container, Button, Card, Badge, Reveal).
 - [x] **Phase 1: Shell + Hero** (Sticky translucent navbar, 3D tilt JAB LEATHER card, recruiter proof strip, resume download).
 - [x] **Phase 2: Selected Work & Case Studies** (Featured card, 2-column grid, dynamic `/projects/[slug]` pages with architecture diagrams and security deep dives).
 - [x] **Phase 3: Experience, Skills & About** (Vertical timeline, 3x2 project-tagged skills grid without fake percentage bars, 2-column about section with quick facts).
 - [x] **Phase 4: Contact & Dynamic Features** (Zod-validated contact form, rate-limited `/api/contact` route, Resend integration, custom 404, footer, back-to-top).
+- [x] **Phase 5: Heavy Differentiators** (GitHub contribution heatmap, ISR pinned repos, quality CI badges, MDX engineering blog, Ctrl+K command palette, resume modal, AI assistant).

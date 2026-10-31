@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, ShieldCheck, DollarSign, Layers } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ShieldCheck, DollarSign, Layers, CheckCircle2, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/icons";
@@ -109,6 +109,24 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
               </span>
             ))}
           </div>
+
+          {/* Quality Badges Row */}
+          {project.qualityBadges && (
+            <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-muted">
+              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-[6px] bg-surface-2 border border-border">
+                <CheckCircle2 className="h-3 w-3 text-success" />
+                <span>tests: {project.qualityBadges.tests}</span>
+              </span>
+              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-[6px] bg-surface-2 border border-border">
+                <Shield className="h-3 w-3 text-accent" />
+                <span>coverage: {project.qualityBadges.coverage}</span>
+              </span>
+              <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-[6px] bg-surface-2 border border-border">
+                <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                <span>CI: {project.qualityBadges.ci}</span>
+              </span>
+            </div>
+          )}
 
           {/* Links */}
           <div className="flex flex-wrap items-center gap-3 pt-2">

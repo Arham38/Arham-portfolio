@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Clock } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Clock, CheckCircle2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/icons";
 import { type Project } from "@/content/projects";
@@ -54,6 +54,24 @@ export function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+
+        {/* Quality Badges Row */}
+        {project.qualityBadges && (
+          <div className="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[10px] text-muted">
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-2 border border-border">
+              <CheckCircle2 className="h-2.5 w-2.5 text-success" />
+              <span>{project.qualityBadges.tests}</span>
+            </span>
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-2 border border-border">
+              <Shield className="h-2.5 w-2.5 text-accent" />
+              <span>{project.qualityBadges.coverage}</span>
+            </span>
+            <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-2 border border-border">
+              <span className="h-1 w-1 rounded-full bg-success" />
+              <span>CI</span>
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Footer Links */}
