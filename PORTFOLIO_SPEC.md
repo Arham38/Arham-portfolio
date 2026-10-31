@@ -345,7 +345,33 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 12. Complete Developer Portfolio Roadmap Status
+## 12. Polish, Accessibility, Performance & Tests (Phase 6)
+
+### 1. Accessibility & Semantic Landmarks
+- **Skip Link**: Accessible skip-to-content landmark at the root (`#main-content`) with keyboard focus highlight.
+- **Focus Rings**: Strict visible keyboard focus indicators (`focus-visible:ring-accent focus-visible:ring-offset-2`).
+- **Semantic Structure**: Proper `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, ARIA dialogs, and contrast ratios exceeding WCAG AA standards (15.8:1 text contrast).
+
+### 2. High-Performance Targets
+- **Image Optimization**: Configured in `next.config.mjs` for AVIF and WebP generation.
+- **Zero Layout Shift (CLS < 0.1)**: Explicit aspect ratios, font display swap, and layout stabilization.
+- **Lighthouse 90+ Target**: Optimized bundle chunks, dynamic imports, and static generation.
+
+### 3. SEO & Rich Structured Snippets
+- **OpenGraph & Twitter Cards**: Dynamic edge-rendered share banner ([`src/app/opengraph-image.tsx`](file:///d:/PortFolio-Arham/src/app/opengraph-image.tsx)) styled with the dark-first palette and Space Grotesk typography.
+- **Dynamic XML Sitemap (`src/app/sitemap.ts`)**: Auto-indexing of homepage, blog archive, 4 case studies, and 4 engineering deep-dives.
+- **Robots Policy (`src/app/robots.ts`)**: Structured bot crawling guidelines.
+- **JSON-LD Person Schema**: Embedded in `<head>` detailing career role, UCP university credentials, verified skills, and social handles.
+
+### 4. Automated Playwright E2E Test Harness (`tests/e2e/`)
+- **Navigation Suite (`navigation.spec.ts`)**: Tests anchor jumps, blog routing, case study navigation, skip links, and `Ctrl+K` palette trigger.
+- **Contact Form Suite (`contact-form.spec.ts`)**: Tests Zod validation errors, email syntax checks, mock transmission success, and honeypot field hiding.
+- **Theme Toggle Suite (`theme-toggle.spec.ts`)**: Tests dark-first baseline, transition to light theme, and persistence.
+- **Command**: Run with `npm run test:e2e`.
+
+---
+
+## 13. Complete Developer Portfolio Roadmap Status
 
 - [x] **Phase 0: Design System & Tokens** (Dark-first, CSS variables, single accent `#6C63FF`, JetBrains Mono / Space Grotesk, Container, Button, Card, Badge, Reveal).
 - [x] **Phase 1: Shell + Hero** (Sticky translucent navbar, 3D tilt JAB LEATHER card, recruiter proof strip, resume download).
@@ -353,3 +379,4 @@ import { ThemeToggle } from "@/components/ui";
 - [x] **Phase 3: Experience, Skills & About** (Vertical timeline, 3x2 project-tagged skills grid without fake percentage bars, 2-column about section with quick facts).
 - [x] **Phase 4: Contact & Dynamic Features** (Zod-validated contact form, rate-limited `/api/contact` route, Resend integration, custom 404, footer, back-to-top).
 - [x] **Phase 5: Heavy Differentiators** (GitHub contribution heatmap, ISR pinned repos, quality CI badges, MDX engineering blog, Ctrl+K command palette, resume modal, AI assistant).
+- [x] **Phase 6: Polish, Accessibility, Performance & Tests** (Skip-to-content, AVIF/WebP, OpenGraph dynamic image, sitemap/robots, JSON-LD Person schema, Playwright E2E suites).
