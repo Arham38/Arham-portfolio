@@ -190,9 +190,40 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 7. Next Steps (Phase 1 Roadmap)
+## 7. Shell & Hero Components (Phase 1)
 
-1. **Phase 1: Hero & Navbar** (Header navigation, status pill, headline, CTA buttons, social links).
-2. **Phase 2: Projects Showcase** (Case study cards, live demo links, GitHub repo modals).
-3. **Phase 3: Experience & Skills** (Interactive timeline, tech badges, architecture highlights).
-4. **Phase 4: Contact & Footer** (Minimalist direct contact mechanism, pgp/email copy, footer links).
+### 1. Navbar (`src/components/navbar/navbar.tsx`)
+- **Height**: `72px` sticky header.
+- **Surface**: `backdrop-blur-md bg-bg/85` with dynamic bottom border on scroll (`window.scrollY > 20`).
+- **Active Indicator**: Animated spring underline (`layoutId="activeNavbarIndicator"`).
+- **Mobile Drawer**: Full-screen sheet with `24px` links (`font-heading`), body scroll locking, and quick Resume CTA.
+
+### 2. Hero Section (`src/components/hero/hero.tsx`)
+- **Layout**: 55% left column, 45% right column.
+- **Recruiter Hooks**:
+  - Live status pill: `Open to Internships · Lahore` (pulsing green dot `#34D399`).
+  - H1 headline: `Muhammad Arham` (64px desktop / 40px mobile).
+  - Value proposition: `I build secure, scalable full-stack web apps with the MERN stack.`
+  - CTAs: Primary `View Projects` (scroll to `#projects`) + Ghost `Download CV` (`/resume.pdf`).
+  - Social Links: GitHub, LinkedIn, Email with crisp brand icons.
+
+### 3. JAB LEATHER Tilt Preview (`src/components/hero/project-tilt-card.tsx`)
+- High-fidelity admin dashboard interface preview (orders, $128.4K revenue metric, 42ms latency, RBAC roles, JWT security).
+- 3D perspective mouse tracking tilt (`perspective: 1000px`, `rotateX`, `rotateY`).
+- Respects `prefers-reduced-motion` to disable tilt transformation when requested.
+
+### 4. Recruiter Proof Strip
+- 4 metrics formatted in `JetBrains Mono`:
+  1. `14-category store` (Core Build)
+  2. `40+ APIs` (Backend Architecture)
+  3. `RBAC + RLS` (Security Standard)
+  4. `Jest/Playwright tested` (Automated QA)
+- Spaced with subtle borders and dividers.
+
+---
+
+## 8. Next Steps (Phase 2 Roadmap)
+
+1. **Phase 2: Featured Projects Showcase** (JAB Leather deep dive, architecture badges, problem/solution breakdown, GitHub & Live links).
+2. **Phase 3: Experience & Skills** (Interactive timeline, tech badges, architecture highlights).
+3. **Phase 4: Contact & Footer** (Minimalist direct contact mechanism, email copy, footer links).
