@@ -222,8 +222,41 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 8. Next Steps (Phase 2 Roadmap)
+## 8. Selected Work & Case Studies (Phase 2)
 
-1. **Phase 2: Featured Projects Showcase** (JAB Leather deep dive, architecture badges, problem/solution breakdown, GitHub & Live links).
-2. **Phase 3: Experience & Skills** (Interactive timeline, tech badges, architecture highlights).
-3. **Phase 4: Contact & Footer** (Minimalist direct contact mechanism, email copy, footer links).
+### 1. Projects Section (`src/components/projects/projects-section.tsx`)
+- **Header**: `Selected Work` with subtitle: *"Real products, real clients, tested and deployed."*
+- **Anchor**: Bound to `#projects` with 120px desktop / 72px mobile vertical rhythm.
+
+### 2. Featured Project Card (`src/components/projects/featured-project-card.tsx`)
+- **Full-Width Showcase**: JAB LEATHER e-commerce suite.
+- **Layout**: Interactive visual storefront preview on the left; outcome, metadata, tech pills (max 5-6), and action links on the right.
+- **Hover Micro-Interactions**: Card lifts 4px (`-translate-y-1`), 1px border brightens (`#384259`), and soft accent glow radiates.
+
+### 3. Grid Project Cards (`src/components/projects/project-card.tsx`)
+- **Grid Layout**: 2-column grid on desktop (1 column on mobile).
+- **Projects**:
+  - `CodeCraft LMS`: Sandboxed code execution with Docker & BullMQ.
+  - `SME ERP Solution`: Multi-branch inventory & tax invoicing engine.
+  - `AuthentixAI`: Deepfake verification pipeline with amber `In Progress` status badge.
+- **Content Hierarchy**: Category metadata, title, 2-line outcome, max 5 tech pills in `JetBrains Mono`, and direct links (`Live Demo`, `GitHub`, `Case Study`).
+
+### 4. Case Study Template (`src/app/projects/[slug]/page.tsx`)
+- **Static Generation**: Dynamic routing powered by `generateStaticParams()` and per-page SEO metadata (`generateMetadata()`).
+- **Structured Sections**:
+  1. *Hero*: Category, role, timeline, source code & live preview links, window preview mockup.
+  2. *Overview*: Problem → Engineering Solution concise brief.
+  3. *Key Metrics Row*: 3–4 quantifiable engineering numbers formatted in JetBrains Mono.
+  4. *Architecture Diagram*: Decoupled layers (Client, Backend API, Security/RLS, Database).
+  5. *Key Features*: 3–6 feature modules with technical highlights and verification tags.
+  6. *Engineering Challenges & Solutions*: 2–3 pairs detailing hurdles, architectural fixes, and quantifiable results.
+  7. *Security & QA (The Differentiator)*: RLS Postgres policies, JWT cookie rotations, input sanitization, Vitest unit testing, and Playwright E2E browser flows.
+  8. *Tech Stack & Retrospective*: Categorized tech components + *"What I'd Improve Next"* roadmap.
+  9. *Next/Prev Navigation*: Two-way interactive links to cycle between all case studies.
+
+---
+
+## 9. Next Steps (Phase 3 Roadmap)
+
+1. **Phase 3: Experience & Skills** (Interactive experience timeline, categorized skill pills with proficiency contexts, education).
+2. **Phase 4: About & Contact** (Philosophy, bio, interactive contact form with direct mail copy, social links, footer).

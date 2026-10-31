@@ -1,8 +1,7 @@
 import { Navbar } from "@/components/navbar/navbar";
 import { Hero } from "@/components/hero/hero";
+import { ProjectsSection } from "@/components/projects/projects-section";
 import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { Badge } from "@/components/ui/badge";
 
 export default function HomePage() {
   return (
@@ -15,20 +14,10 @@ export default function HomePage() {
         {/* Phase 1: Above-the-fold Hero */}
         <Hero />
 
-        {/* Anchor stubs for seamless navigation in upcoming phases */}
-        <Section id="projects" className="border-t border-border/50 py-16">
-          <Container>
-            <div className="flex items-center justify-between">
-              <Badge variant="outline" className="font-mono text-xs">
-                #projects
-              </Badge>
-              <span className="font-mono text-xs text-muted">
-                Phase 2: Featured Projects incoming
-              </span>
-            </div>
-          </Container>
-        </Section>
+        {/* Phase 2: Selected Work Projects Section */}
+        <ProjectsSection />
 
+        {/* Anchor stubs for upcoming phases */}
         <div id="experience" />
         <div id="skills" />
         <div id="about" />
