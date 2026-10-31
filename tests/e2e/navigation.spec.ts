@@ -55,4 +55,16 @@ test.describe("Portfolio Navigation & Accessibility", () => {
     const contactHeading = page.locator("#contact").getByRole("heading", { name: /Contact/i });
     await expect(contactHeading).toBeVisible();
   });
+
+  test("should cycle project images using next and prev buttons", async ({ page }) => {
+    const nextBtn = page.getByRole("button", { name: /Next image for ShopHub/i });
+    await expect(nextBtn).toBeVisible();
+
+    // Click next to switch to second image
+    await nextBtn.click();
+
+    // Click prev to switch back to first image
+    const prevBtn = page.getByRole("button", { name: /Previous image for ShopHub/i });
+    await prevBtn.click();
+  });
 });

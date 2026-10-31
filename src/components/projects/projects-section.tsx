@@ -1,15 +1,18 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
 import { GithubIcon } from "@/components/icons";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ProjectItem {
   id: string;
   title: string;
   description: string;
-  image: string;
+  images: string[];
   tech: string[];
   githubUrl?: string;
   badge?: string;
@@ -21,7 +24,7 @@ const PROJECTS: ProjectItem[] = [
     title: "JAB LEATHER",
     description:
       "E-commerce platform with 14-category catalog, variants, cart, wishlist, checkout, USD/PKR currency engine, and Shopify-style admin.",
-    image: "/projects/jab-leather.png",
+    images: ["/projects/jab-leather.png", "/projects/jab-leather-admin.png"],
     tech: ["React", "Node", "Express", "PostgreSQL", "Supabase"],
     githubUrl: "https://github.com/Arham38/JABLEATHER.git",
   },
@@ -30,7 +33,7 @@ const PROJECTS: ProjectItem[] = [
     title: "CodeCraft Academy LMS",
     description:
       "Interactive course platform with anti-cheat quizzes, attendance, gradebook, and role-based access control.",
-    image: "/projects/codecraft-lms.png",
+    images: ["/projects/codecraft-lms.png", "/projects/codecraft-lms-admin.png"],
     tech: ["React", "Node", "Express", "MongoDB", "Playwright"],
     githubUrl: "https://github.com/Arham38/LMS.git",
   },
@@ -39,7 +42,7 @@ const PROJECTS: ProjectItem[] = [
     title: "ShopHub",
     description:
       "Full-stack MERN e-commerce store with product catalog, category & brand filtering, shopping cart, favorites, and secure checkout.",
-    image: "/projects/shophub.png",
+    images: ["/projects/shophub.png", "/projects/shophub-catalog.png"],
     tech: ["React", "Node", "Express", "MongoDB", "Tailwind"],
     githubUrl: "https://github.com/Arham38/MERN-ECommernce-Store.git",
   },
@@ -49,11 +52,89 @@ const PROJECTS: ProjectItem[] = [
     badge: "In Progress",
     description:
       "Deepfake video and audio analyzer for identity verification. Final year project developed in a team of 3.",
-    image: "/projects/authentix-ai.png",
+    images: ["/projects/authentix-ai.png", "/projects/authentix-ai-analysis.png"],
     tech: ["Next.js", "FastAPI", "MongoDB", "PyTorch (planned)"],
     githubUrl: "https://github.com/Arham38/authentix-ai",
   },
 ];
+
+function ProjectImageGallery({ images, title }: { images: string[]; title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  return (
+    <div className="relative aspect-video w-full rounded-[8px] border border-border overflow-hidden bg-surface-2 group">
+      <Image
+        src={images[currentIndex]}
+        alt={`${title} - screenshot ${currentIndex + 1}`}
+        fill
+        sizes="(max-width: 768px) 100vw, 520px"
+        className="object-cover transition-opacity duration-200"
+      />
+
+      {images.length > 1 && (
+        <>
+          {/* Previous Button (<) */}
+          <button
+            type="button"
+            onClick={prevImage}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-bg/85 backdrop-blur-sm border border-border text-text-primary hover:bg-bg hover:scale-105 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            aria-label={`Previous image for ${title}`}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+
+          {/* Next Button (>) */}
+          <button
+            type="button"
+            onClick={nextImage}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-bg/85 backdrop-blur-sm border border-border text-text-primary hover:bg-bg hover:scale-105 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            aria-label={`Next image for ${title}`}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+
+          {/* Navigation Dots Indicator */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-bg/85 backdrop-blur-sm border border-border">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setCurrentIndex(idx);
+                }}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === currentIndex
+                    ? "w-4 bg-accent"
+                    : "w-1.5 bg-text-tertiary/40 hover:bg-text-tertiary"
+                }`}
+                aria-label={`Go to image ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Index Counter Pill */}
+          <span className="absolute top-2 right-2 z-10 font-mono text-[10px] px-1.5 py-0.5 rounded bg-bg/85 backdrop-blur-sm border border-border text-text-secondary">
+            {currentIndex + 1}/{images.length}
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
 
 export function ProjectsSection() {
   return (
@@ -72,16 +153,11 @@ export function ProjectsSection() {
               className="flex flex-col justify-between rounded-[12px] border border-border bg-surface p-6 transition-colors duration-150 hover:border-border-hover"
             >
               <div className="space-y-4">
-                {/* Screenshot Placeholder */}
-                <div className="relative aspect-video w-full rounded-[8px] border border-border overflow-hidden bg-surface-2">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 520px"
-                    className="object-cover"
-                  />
-                </div>
+                {/* Image Gallery with Previous / Next Buttons */}
+                <ProjectImageGallery
+                  images={project.images}
+                  title={project.title}
+                />
 
                 {/* Title & Badge */}
                 <div className="flex items-center justify-between gap-2 pt-1">
