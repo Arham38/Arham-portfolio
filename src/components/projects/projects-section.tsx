@@ -43,7 +43,13 @@ const PROJECTS: ProjectItem[] = [
     title: "CodeCraft Academy LMS",
     description:
       "Interactive course platform with anti-cheat quizzes, attendance, gradebook, and role-based access control.",
-    images: ["/projects/codecraft-lms.png", "/projects/codecraft-lms-admin.png"],
+    images: [
+      "/projects/codecraft-lms.png",
+      "/projects/codecraft-lms-bootcamps.png",
+      "/projects/codecraft-lms-syllabus.png",
+      "/projects/codecraft-lms-admin-overview.png",
+      "/projects/codecraft-lms-admin-courses.png",
+    ],
     tech: ["React", "Node", "Express", "MongoDB", "Playwright"],
     githubUrl: "https://github.com/Arham38/LMS.git",
   },
