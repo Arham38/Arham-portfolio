@@ -144,11 +144,22 @@ export function Footer() {
               </a>
 
               <a
-                href="mailto:arhambhatti38@gmail.com"
+                href="mailto:muhammadarham0372@gmail.com"
                 className="flex items-center gap-2 hover:text-accent transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
-                <span>arhambhatti38@gmail.com</span>
+                <span>muhammadarham0372@gmail.com</span>
+                <ArrowUpRight className="h-3 w-3 ml-auto text-muted/60" />
+              </a>
+
+              <a
+                href="https://wa.me/923459725016"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-success transition-colors"
+              >
+                <span className="font-bold text-success text-xs">WA</span>
+                <span>+92 345 9725016</span>
                 <ArrowUpRight className="h-3 w-3 ml-auto text-muted/60" />
               </a>
             </div>

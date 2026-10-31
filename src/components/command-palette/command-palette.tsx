@@ -195,13 +195,24 @@ export function CommandPalette() {
             <Command.Group heading="Quick Actions" className="text-muted text-[10px] uppercase tracking-wider px-2 py-1.5 mt-2">
               <Command.Item
                 onSelect={() => {
-                  navigator.clipboard.writeText("arhambhatti38@gmail.com");
+                  navigator.clipboard.writeText("muhammadarham0372@gmail.com");
                   setOpen(false);
                 }}
                 className="flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-xs text-text hover:bg-surface-2 hover:text-accent cursor-pointer transition-colors"
               >
                 <Mail className="h-3.5 w-3.5 text-accent" />
-                <span>Copy Direct Email (arhambhatti38@gmail.com)</span>
+                <span>Copy Direct Email (muhammadarham0372@gmail.com)</span>
+              </Command.Item>
+
+              <Command.Item
+                onSelect={() => {
+                  navigator.clipboard.writeText("+923459725016");
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2.5 rounded-[8px] px-3 py-2 text-xs text-text hover:bg-surface-2 hover:text-accent cursor-pointer transition-colors"
+              >
+                <Mail className="h-3.5 w-3.5 text-success" />
+                <span>Copy Phone / WhatsApp (+92 345 9725016)</span>
               </Command.Item>
 
               <Command.Item

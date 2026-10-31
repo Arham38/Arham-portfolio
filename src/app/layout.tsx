@@ -98,6 +98,8 @@ const jsonLdPerson = {
   "@type": "Person",
   name: "Muhammad Arham",
   url: "https://arham-portfolio.vercel.app",
+  email: "muhammadarham0372@gmail.com",
+  telephone: "+923459725016",
   jobTitle: "Full-Stack Software Engineer",
   alumniOf: {
     "@type": "CollegeOrUniversity",

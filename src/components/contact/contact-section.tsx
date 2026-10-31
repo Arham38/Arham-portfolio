@@ -10,42 +10,59 @@ import {
   Copy,
   Check,
   Mail,
+  Phone,
   Clock,
   ArrowUpRight,
+  MessageCircle,
 } from "lucide-react";
 import { ContactForm } from "./contact-form";
 
 export function ContactSection() {
-  const [copied, setCopied] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const emailAddress = "arhambhatti38@gmail.com";
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  const emailAddress = "muhammadarham0372@gmail.com";
+  const phoneNumber = "+923459725016";
+  const phoneDisplay = "+92 345 9725016";
+
+  const triggerToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage("");
+    }, 3000);
+  };
 
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(emailAddress);
-      setCopied(true);
-      setShowToast(true);
-
-      setTimeout(() => {
-        setCopied(false);
-      }, 2500);
-
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3500);
+      setCopiedEmail(true);
+      triggerToast("Email copied to clipboard!");
+      setTimeout(() => setCopiedEmail(false), 2500);
     } catch (err) {
       console.error("Failed to copy email:", err);
+    }
+  };
+
+  const handleCopyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText(phoneNumber);
+      setCopiedPhone(true);
+      triggerToast("Phone number copied to clipboard!");
+      setTimeout(() => setCopiedPhone(false), 2500);
+    } catch (err) {
+      console.error("Failed to copy phone:", err);
     }
   };
 
   return (
     <Section id="contact" className="border-t border-border/60 relative">
       {/* Toast Notification */}
-      {showToast && (
+      {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-[10px] border border-accent/40 bg-surface px-4 py-3 shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-250">
           <Check className="h-4 w-4 text-success" />
           <span className="font-mono text-xs text-text">
-            Email copied to clipboard!
+            {toastMessage}
           </span>
         </div>
       )}
@@ -71,14 +88,14 @@ export function ContactSection() {
         {/* 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Inquiries & Socials */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6">
             <Reveal delay={0.15}>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <h3 className="font-heading text-xl font-bold text-text">
                   Direct Inquiries
                 </h3>
                 <p className="text-body text-sm text-muted leading-relaxed">
-                  Whether you have an internship position, a complex backend architectural hurdle, or want to discuss full-stack MERN best practices, my inbox is always open.
+                  Whether you have an internship position, a complex backend architectural hurdle, or want to discuss full-stack MERN best practices, reach out directly.
                 </p>
               </div>
             </Reveal>
@@ -95,9 +112,12 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-center justify-between gap-3 rounded-[8px] bg-surface-2 p-3 border border-border/60">
-                  <span className="font-mono text-xs sm:text-sm text-text select-all truncate">
+                  <a
+                    href={`mailto:${emailAddress}`}
+                    className="font-mono text-xs sm:text-sm text-text hover:text-accent select-all truncate transition-colors"
+                  >
                     {emailAddress}
-                  </span>
+                  </a>
 
                   <button
                     type="button"
@@ -105,7 +125,7 @@ export function ContactSection() {
                     className="inline-flex shrink-0 items-center gap-1.5 rounded-[6px] bg-surface px-3 py-1.5 font-mono text-xs text-muted hover:text-accent hover:border-accent/40 border border-border transition-all active:scale-95"
                     aria-label="Copy email address"
                   >
-                    {copied ? (
+                    {copiedEmail ? (
                       <>
                         <Check className="h-3.5 w-3.5 text-success" />
                         <span className="text-success font-medium">Copied!</span>
@@ -121,8 +141,57 @@ export function ContactSection() {
               </div>
             </Reveal>
 
+            {/* Phone & WhatsApp Card */}
+            <Reveal delay={0.23}>
+              <div className="rounded-[14px] border border-border bg-surface p-5 space-y-3 hover:border-accent/40 transition-colors">
+                <div className="flex items-center justify-between text-xs font-mono text-muted">
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="h-3.5 w-3.5 text-success" />
+                    Phone / WhatsApp
+                  </span>
+                  <span className="text-[10px] text-success">Direct Dial</span>
+                </div>
+
+                <div className="flex items-center justify-between gap-3 rounded-[8px] bg-surface-2 p-3 border border-border/60">
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`https://wa.me/923459725016`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-xs sm:text-sm text-text hover:text-success select-all transition-colors flex items-center gap-1.5"
+                    >
+                      <span>{phoneDisplay}</span>
+                      <MessageCircle className="h-3.5 w-3.5 text-success" />
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <a
+                      href={`tel:${phoneNumber}`}
+                      className="inline-flex shrink-0 items-center gap-1 rounded-[6px] bg-surface px-2.5 py-1.5 font-mono text-xs text-muted hover:text-accent border border-border transition-all"
+                      aria-label="Call phone number"
+                    >
+                      Call
+                    </a>
+                    <button
+                      type="button"
+                      onClick={handleCopyPhone}
+                      className="inline-flex shrink-0 items-center gap-1 rounded-[6px] bg-surface px-2.5 py-1.5 font-mono text-xs text-muted hover:text-accent border border-border transition-all active:scale-95"
+                      aria-label="Copy phone number"
+                    >
+                      {copiedPhone ? (
+                        <Check className="h-3.5 w-3.5 text-success" />
+                      ) : (
+                        <Copy className="h-3.5 w-3.5" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
             {/* Social Channels */}
-            <Reveal delay={0.25}>
+            <Reveal delay={0.26}>
               <div className="space-y-3">
                 <span className="font-mono text-xs text-muted uppercase tracking-wider block">
                   Connect & Inspect

@@ -111,7 +111,7 @@ export function Hero() {
                 </a>
                 <span className="text-border" aria-hidden="true">·</span>
                 <a
-                  href="mailto:arhambhatti38@gmail.com"
+                  href="mailto:muhammadarham0372@gmail.com"
                   className="flex items-center gap-2 hover:text-accent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1.5 py-1"
                   aria-label="Send Email"
                 >

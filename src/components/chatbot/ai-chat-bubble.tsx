@@ -35,9 +35,9 @@ const KNOWLEDGE_BASE: Array<{ keywords: string[]; answer: string }> = [
       "Arham is pursuing his Bachelor of Science in Software Engineering (BSSE) at the University of Central Punjab (UCP) in Lahore, expected to graduate in July 2027.",
   },
   {
-    keywords: ["contact", "email", "reach", "message"],
+    keywords: ["contact", "email", "reach", "message", "phone", "whatsapp", "call"],
     answer:
-      "You can email Arham directly at arhambhatti38@gmail.com, connect on LinkedIn (https://www.linkedin.com/in/arham-bhatti-b342062a0/), or submit the interactive form in the Contact section of this page.",
+      "You can email Arham directly at muhammadarham0372@gmail.com, reach him on WhatsApp/Phone at +92 345 9725016, connect on LinkedIn (https://www.linkedin.com/in/arham-bhatti-b342062a0/), or submit the interactive form in the Contact section of this page.",
   },
 ];
 

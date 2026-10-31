@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
 
     // Resend Email Delivery
     const resendApiKey = process.env.RESEND_API_KEY;
-    const recipientEmail = process.env.CONTACT_EMAIL || "arhambhatti38@gmail.com";
+    const recipientEmail = process.env.CONTACT_EMAIL || "muhammadarham0372@gmail.com";
 
     if (resendApiKey) {
       const resend = new Resend(resendApiKey);
