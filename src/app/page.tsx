@@ -1,6 +1,9 @@
 import { Navbar } from "@/components/navbar/navbar";
 import { Hero } from "@/components/hero/hero";
 import { ProjectsSection } from "@/components/projects/projects-section";
+import { ExperienceSection } from "@/components/experience/experience-section";
+import { SkillsSection } from "@/components/skills/skills-section";
+import { AboutSection } from "@/components/about/about-section";
 import { Container } from "@/components/ui/container";
 
 export default function HomePage() {
@@ -17,10 +20,16 @@ export default function HomePage() {
         {/* Phase 2: Selected Work Projects Section */}
         <ProjectsSection />
 
-        {/* Anchor stubs for upcoming phases */}
-        <div id="experience" />
-        <div id="skills" />
-        <div id="about" />
+        {/* Phase 3: Experience & Education Timeline */}
+        <ExperienceSection />
+
+        {/* Phase 3: Skills 3x2 Tagged Cards */}
+        <SkillsSection />
+
+        {/* Phase 3: About Me 2-Column Section */}
+        <AboutSection />
+
+        {/* Anchor stub for Phase 4: Contact */}
         <div id="contact" />
       </main>
 

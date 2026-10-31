@@ -256,7 +256,30 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 9. Next Steps (Phase 3 Roadmap)
+## 9. Experience, Skills & About (Phase 3)
 
-1. **Phase 3: Experience & Skills** (Interactive experience timeline, categorized skill pills with proficiency contexts, education).
-2. **Phase 4: About & Contact** (Philosophy, bio, interactive contact form with direct mail copy, social links, footer).
+### 1. Experience Timeline (`src/components/experience/experience-section.tsx`)
+- **Vertical Accent Timeline**: Left accent line with responsive node indicators (`#6C63FF` border & glow).
+- **Outcome-Led Bullets**:
+  - *JAB LEATHER*: Protected customer data with PostgreSQL RLS/RBAC (1,400+ orders), dual-currency USD/PKR pricing engine, 99.98% payment pipeline reliability via Vitest & Playwright.
+  - *Education Node*: University of Central Punjab (UCP), BS Software Engineering (BSSE), expected graduation Jul 2027.
+
+### 2. Grouped Skills 3×2 Grid (`src/components/skills/skills-section.tsx`)
+- **Structure**: 6 grouped cards: Frontend, Backend, Databases, Security, Testing, Tools.
+- **Project-Tagged Pills**: Zero percentage bars. Depth demonstrated through explicit project tags (e.g. `JWT → LMS, ERP`, `PostgreSQL → JAB, LMS`, `RLS → JAB LEATHER`, `Docker → LMS, Authentix`).
+- **Typography**: Formatted in `JetBrains Mono` with subtle borders and high contrast.
+
+### 3. About Section (`src/components/about/about-section.tsx`)
+- **2-Column Layout**:
+  - Left: Square portrait card (`rounded-[16px]`, subtle accent border `#6C63FF`, live status chips, and monogram badge).
+  - Right: 3 concise paragraphs (Who you are, What you're good at, What you're looking for).
+- **Quick Fact Chips**:
+  1. *Location*: Lahore, Pakistan (PKT · UTC+5)
+  2. *Education*: BS Software Engineering @ UCP (Jul 2027)
+  3. *Availability*: Open to Internships & Roles (Immediate Start)
+
+---
+
+## 10. Next Steps (Phase 4 Roadmap)
+
+1. **Phase 4: Contact & Footer** (Minimalist direct contact mechanism, email copy action, social links, footer, final polish).
