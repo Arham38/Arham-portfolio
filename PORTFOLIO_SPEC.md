@@ -280,6 +280,42 @@ import { ThemeToggle } from "@/components/ui";
 
 ---
 
-## 10. Next Steps (Phase 4 Roadmap)
+## 10. Contact, Backend API & Dynamic Features (Phase 4)
 
-1. **Phase 4: Contact & Footer** (Minimalist direct contact mechanism, email copy action, social links, footer, final polish).
+### 1. Contact Section (`src/components/contact/contact-section.tsx`)
+- **2-Column Layout**:
+  - *Left Column*:
+    - Heading: `Let's build something.`
+    - Direct email copy-to-clipboard action with toast feedback alert.
+    - Verified social channels (GitHub, LinkedIn, Email).
+    - Response time guarantee: typically within 24 hours (PKT / UTC+5).
+  - *Right Column (Interactive Form)*:
+    - Inputs for Name, Email, Message, and an automated hidden anti-bot honeypot field.
+    - Focus ring in accent (`#6C63FF`), inline field validation errors.
+    - Submit state with loading spinner icon.
+    - Replacement success screen ("Message Delivered!") with option to send another message.
+    - Error banner with retry capability.
+
+### 2. Backend Contact API (`src/app/api/contact/route.ts`)
+- **Validation**: Schema-level runtime validation via `zod` (`name`, `email`, `message`, `honeypot`).
+- **Rate Limiting**: IP-based in-memory sliding window enforcing a maximum of **5 requests per hour per IP** with standard HTTP 429 status code and `Retry-After` header.
+- **Bot Mitigation**: Submissions filling the honeypot field are safely acknowledged with HTTP 200 without executing the email dispatcher.
+- **Email Delivery**: Powered by `resend` SDK. Seamlessly dispatches structured HTML messages when `RESEND_API_KEY` is present, or logs structured payloads in local development/simulation mode.
+
+### 3. Polish & Extra Enhancements
+- **Footer (`src/components/footer/footer.tsx`)**:
+  - Repeated navigation routes, external profiles, copyright notice (`© 2026 Muhammad Arham`), and quick back-to-top link.
+- **Custom 404 Page (`src/app/not-found.tsx`)**:
+  - Themed error screen with route exception stack details, JetBrains Mono font, and return-home action button.
+- **Back-to-Top Button (`src/components/ui/back-to-top.tsx`)**:
+  - Floating bottom-right action appearing dynamically when `scrollY > 400px` with smooth scroll behavior.
+
+---
+
+## 11. Complete Developer Portfolio Roadmap Status
+
+- [x] **Phase 0: Design System & Tokens** (Dark-first, CSS variables, single accent `#6C63FF`, JetBrains Mono / Space Grotesk, Container, Button, Card, Badge, Reveal).
+- [x] **Phase 1: Shell + Hero** (Sticky translucent navbar, 3D tilt JAB LEATHER card, recruiter proof strip, resume download).
+- [x] **Phase 2: Selected Work & Case Studies** (Featured card, 2-column grid, dynamic `/projects/[slug]` pages with architecture diagrams and security deep dives).
+- [x] **Phase 3: Experience, Skills & About** (Vertical timeline, 3x2 project-tagged skills grid without fake percentage bars, 2-column about section with quick facts).
+- [x] **Phase 4: Contact & Dynamic Features** (Zod-validated contact form, rate-limited `/api/contact` route, Resend integration, custom 404, footer, back-to-top).

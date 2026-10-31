@@ -4,7 +4,9 @@ import { ProjectsSection } from "@/components/projects/projects-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { AboutSection } from "@/components/about/about-section";
-import { Container } from "@/components/ui/container";
+import { ContactSection } from "@/components/contact/contact-section";
+import { Footer } from "@/components/footer/footer";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 export default function HomePage() {
   return (
@@ -14,34 +16,30 @@ export default function HomePage() {
 
       {/* Main Content Area */}
       <main id="main-content">
-        {/* Phase 1: Above-the-fold Hero */}
+        {/* Phase 1: Hero Section */}
         <Hero />
 
         {/* Phase 2: Selected Work Projects Section */}
         <ProjectsSection />
 
-        {/* Phase 3: Experience & Education Timeline */}
+        {/* Phase 3: Trajectory & Experience Timeline */}
         <ExperienceSection />
 
-        {/* Phase 3: Skills 3x2 Tagged Cards */}
+        {/* Phase 3: Technical Arsenal 3x2 Grid */}
         <SkillsSection />
 
-        {/* Phase 3: About Me 2-Column Section */}
+        {/* Phase 3: Background & About */}
         <AboutSection />
 
-        {/* Anchor stub for Phase 4: Contact */}
-        <div id="contact" />
+        {/* Phase 4: Contact & Direct Inquiries */}
+        <ContactSection />
       </main>
 
-      {/* Minimal clean shell footer */}
-      <footer className="border-t border-border py-8 text-center text-xs font-mono text-muted">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span>© {new Date().getFullYear()} Muhammad Arham. All rights reserved.</span>
-            <span>MERN Stack · Lahore, Pakistan</span>
-          </div>
-        </Container>
-      </footer>
+      {/* Phase 4: Full Shell Footer */}
+      <Footer />
+
+      {/* Phase 4: Floating Back-to-Top Action */}
+      <BackToTop />
     </div>
   );
 }
