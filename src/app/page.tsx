@@ -3,53 +3,35 @@ import { Hero } from "@/components/hero/hero";
 import { ProjectsSection } from "@/components/projects/projects-section";
 import { ExperienceSection } from "@/components/experience/experience-section";
 import { SkillsSection } from "@/components/skills/skills-section";
-import { GitHubSection } from "@/components/github/github-section";
-import { AboutSection } from "@/components/about/about-section";
 import { ContactSection } from "@/components/contact/contact-section";
 import { Footer } from "@/components/footer/footer";
-import { BackToTop } from "@/components/ui/back-to-top";
-import { CommandPalette } from "@/components/command-palette/command-palette";
-import { AIChatBubble } from "@/components/chatbot/ai-chat-bubble";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-bg text-text selection:bg-accent/20 selection:text-accent">
-      {/* Global Interactive Command Palette (Ctrl+K / Cmd+K) */}
-      <CommandPalette />
-
-      {/* Shell: 72px Sticky Translucent Navbar */}
+    <div className="min-h-screen bg-bg text-text-primary selection:bg-accent/15 selection:text-accent">
+      {/* 1. Navbar: Sticky, clean, 1px bottom border */}
       <Navbar />
 
       {/* Main Content Area */}
       <main id="main-content">
-        {/* Phase 1: Hero Section */}
+        {/* 2. Hero */}
         <Hero />
 
-        {/* Phase 2: Selected Work Projects Section with CI/Test Badges */}
+        {/* 3. Projects */}
         <ProjectsSection />
 
-        {/* Phase 3: Trajectory & Experience Timeline */}
+        {/* 4. Experience */}
         <ExperienceSection />
 
-        {/* Phase 3: Technical Arsenal 3x2 Grid */}
+        {/* 5. Skills */}
         <SkillsSection />
 
-        {/* Phase 5: GitHub Activity Heatmap & Pinned Repos */}
-        <GitHubSection />
-
-        {/* Phase 3: Background & About */}
-        <AboutSection />
-
-        {/* Phase 4: Contact & Direct Inquiries */}
+        {/* 6. Contact */}
         <ContactSection />
       </main>
 
-      {/* Shell Footer */}
+      {/* 7. Footer */}
       <Footer />
-
-      {/* Dynamic Actions */}
-      <AIChatBubble />
-      <BackToTop />
     </div>
   );
 }

@@ -10,49 +10,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "var(--bg)",
+        bg: {
+          DEFAULT: "var(--bg)",
+          alt: "var(--bg-alt)",
+        },
         surface: {
           DEFAULT: "var(--surface)",
           2: "var(--surface-2)",
         },
         border: {
           DEFAULT: "var(--border)",
-          bright: "var(--border-bright)",
+          hover: "var(--border-hover)",
         },
-        text: "var(--text)",
-        muted: "var(--muted)",
+        text: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          tertiary: "var(--text-tertiary)",
+        },
         accent: {
           DEFAULT: "var(--accent)",
           hover: "var(--accent-hover)",
-          soft: "var(--accent-soft)",
-          glow: "var(--accent-glow)",
         },
         success: {
           DEFAULT: "var(--success)",
-          soft: "var(--success-soft)",
+          bg: "var(--success-bg)",
         },
       },
       fontFamily: {
-        heading: ["var(--font-space-grotesk)", "sans-serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
         mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
       borderRadius: {
         card: "12px",
-        pill: "9999px",
       },
       maxWidth: {
-        container: "1200px",
+        container: "1120px",
       },
       spacing: {
-        "72": "72px",
-        "120": "120px",
-      },
-      transitionDuration: {
-        "250": "250ms",
-      },
-      boxShadow: {
-        "card-glow": "0 12px 32px -4px var(--accent-glow)",
+        "64": "64px",
+        "96": "96px",
       },
     },
   },

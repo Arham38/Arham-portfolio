@@ -15,9 +15,9 @@ test.describe("Contact Form & Honeypot Validation", () => {
   });
 
   test("should display error on invalid email syntax", async ({ page }) => {
-    await page.getByLabel(/Your Name/i).fill("Jane Recruiter");
-    await page.getByLabel(/Email Address/i).fill("invalid-email-string");
-    await page.getByLabel(/Message/i).fill("We have an internship position open for you.");
+    await page.getByLabel("Name", { exact: true }).fill("Jane Recruiter");
+    await page.getByLabel("Email", { exact: true }).fill("invalid-email-string");
+    await page.getByLabel("Message", { exact: true }).fill("We have an internship position open for you.");
 
     const submitBtn = page.getByRole("button", { name: /Send Message/i });
     await submitBtn.click();
@@ -38,14 +38,14 @@ test.describe("Contact Form & Honeypot Validation", () => {
       });
     });
 
-    await page.getByLabel(/Your Name/i).fill("Senior Engineering Manager");
-    await page.getByLabel(/Email Address/i).fill("manager@techcompany.com");
-    await page.getByLabel(/Message/i).fill("We were impressed by your PostgreSQL RLS architecture case study.");
+    await page.getByLabel("Name", { exact: true }).fill("Senior Engineering Manager");
+    await page.getByLabel("Email", { exact: true }).fill("manager@techcompany.com");
+    await page.getByLabel("Message", { exact: true }).fill("We were impressed by your PostgreSQL RLS architecture case study.");
 
     const submitBtn = page.getByRole("button", { name: /Send Message/i });
     await submitBtn.click();
 
-    await expect(page.getByText(/Message Delivered!/i)).toBeVisible();
+    await expect(page.getByText(/Message Sent/i)).toBeVisible();
     await expect(page.getByRole("button", { name: /Send Another Message/i })).toBeVisible();
   });
 

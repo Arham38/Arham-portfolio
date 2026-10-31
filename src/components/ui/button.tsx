@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "ghost";
+  variant?: "primary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -24,19 +24,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-medium select-none transition-all duration-250 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed";
+      "inline-flex items-center justify-center font-sans font-medium select-none transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
 
     const variantStyles = {
-      primary:
-        "bg-accent text-white shadow-sm hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(108,99,255,0.35)] active:translate-y-0",
-      ghost:
-        "bg-transparent text-text border border-border hover:border-accent/50 hover:bg-surface-2 hover:text-accent active:bg-surface",
+      primary: "bg-accent text-white hover:bg-accent-hover",
+      outline: "bg-transparent text-text-primary border border-border hover:border-border-hover hover:bg-surface-2",
+      ghost: "bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-2",
     };
 
     const sizeStyles = {
       sm: "h-9 px-3.5 text-xs rounded-[8px] gap-1.5",
-      md: "h-11 px-5 text-sm rounded-[12px] gap-2",
-      lg: "h-13 px-7 text-base rounded-[12px] gap-2.5",
+      md: "h-10 px-4 text-sm rounded-[8px] gap-2",
+      lg: "h-11 px-5 text-sm rounded-[8px] gap-2",
     };
 
     return (

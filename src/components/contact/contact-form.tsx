@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Send, CheckCircle2, AlertCircle, RefreshCw, Loader2 } from "lucide-react";
 
 interface FormState {
   name: string;
@@ -57,7 +55,6 @@ export function ContactForm() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear inline error on edit
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -109,56 +106,34 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <Card className="p-8 sm:p-10 text-center space-y-6 border-accent/40 bg-surface">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-success/15 border border-success/30 text-success">
-          <CheckCircle2 className="h-7 w-7" />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="font-heading text-2xl font-bold text-text">
-            Message Delivered!
-          </h3>
-          <p className="text-body text-sm text-muted max-w-sm mx-auto leading-relaxed">
-            Thank you for reaching out. Your transmission was received and I will review and reply within 24 hours.
-          </p>
-        </div>
-
+      <div className="rounded-[12px] border border-border bg-surface p-8 text-center space-y-4">
+        <h3 className="text-h3 text-text-primary">
+          Message Sent
+        </h3>
+        <p className="text-body text-sm max-w-sm mx-auto">
+          Thank you for reaching out. I will review your message and reply as soon as possible.
+        </p>
         <Button
-          variant="ghost"
-          size="md"
+          variant="outline"
+          size="sm"
           onClick={handleReset}
-          rightIcon={<RefreshCw className="h-4 w-4" />}
-          className="font-mono text-xs"
         >
           Send Another Message
         </Button>
-      </Card>
+      </div>
     );
   }
 
   return (
-    <Card className="p-6 sm:p-8 space-y-6">
-      <div className="border-b border-border/60 pb-3">
-        <h3 className="font-heading text-xl font-bold text-text">
-          Direct Transmission
-        </h3>
-        <p className="font-mono text-xs text-muted">
-          Type-safe & rate-limited delivery endpoint
-        </p>
-      </div>
-
+    <div className="rounded-[12px] border border-border bg-surface p-6 sm:p-8 space-y-6">
       {status === "error" && (
-        <div className="flex items-start gap-3 p-4 rounded-[10px] bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono">
-          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <span className="font-semibold block">Submission Error:</span>
-            <span>{errorMessage}</span>
-          </div>
+        <div className="p-4 rounded-[8px] border border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400 text-sm">
+          {errorMessage}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-        {/* Anti-bot honeypot field (hidden from view) */}
+        {/* Anti-bot honeypot */}
         <div className="sr-only" aria-hidden="true">
           <label htmlFor="honeypot">Leave this blank</label>
           <input
@@ -176,9 +151,9 @@ export function ContactForm() {
         <div className="space-y-1.5">
           <label
             htmlFor="name"
-            className="block font-mono text-xs font-medium text-text"
+            className="block font-sans text-xs font-medium text-text-primary"
           >
-            Your Name <span className="text-accent">*</span>
+            Name
           </label>
           <input
             type="text"
@@ -186,17 +161,14 @@ export function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Alex Vance"
+            placeholder="Muhammad Arham Bhatti"
             disabled={isSubmitting}
-            className={`w-full rounded-[10px] border bg-surface-2 px-4 py-2.5 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent ${
-              errors.name ? "border-red-500/70" : "border-border hover:border-border-bright"
+            className={`w-full rounded-[8px] border bg-surface px-3.5 py-2 text-sm text-text-primary placeholder:text-text-tertiary transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${
+              errors.name ? "border-red-500" : "border-border hover:border-border-hover"
             }`}
           />
           {errors.name && (
-            <p className="font-mono text-[11px] text-red-400 flex items-center gap-1 mt-1">
-              <AlertCircle className="h-3 w-3" />
-              <span>{errors.name}</span>
-            </p>
+            <p className="text-xs text-red-500 mt-1">{errors.name}</p>
           )}
         </div>
 
@@ -204,9 +176,9 @@ export function ContactForm() {
         <div className="space-y-1.5">
           <label
             htmlFor="email"
-            className="block font-mono text-xs font-medium text-text"
+            className="block font-sans text-xs font-medium text-text-primary"
           >
-            Email Address <span className="text-accent">*</span>
+            Email
           </label>
           <input
             type="email"
@@ -214,17 +186,14 @@ export function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="alex@company.com"
+            placeholder="muhammadarham0372@email.com"
             disabled={isSubmitting}
-            className={`w-full rounded-[10px] border bg-surface-2 px-4 py-2.5 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent ${
-              errors.email ? "border-red-500/70" : "border-border hover:border-border-bright"
+            className={`w-full rounded-[8px] border bg-surface px-3.5 py-2 text-sm text-text-primary placeholder:text-text-tertiary transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${
+              errors.email ? "border-red-500" : "border-border hover:border-border-hover"
             }`}
           />
           {errors.email && (
-            <p className="font-mono text-[11px] text-red-400 flex items-center gap-1 mt-1">
-              <AlertCircle className="h-3 w-3" />
-              <span>{errors.email}</span>
-            </p>
+            <p className="text-xs text-red-500 mt-1">{errors.email}</p>
           )}
         </div>
 
@@ -232,9 +201,9 @@ export function ContactForm() {
         <div className="space-y-1.5">
           <label
             htmlFor="message"
-            className="block font-mono text-xs font-medium text-text"
+            className="block font-sans text-xs font-medium text-text-primary"
           >
-            Message <span className="text-accent">*</span>
+            Message
           </label>
           <textarea
             id="message"
@@ -242,17 +211,14 @@ export function ContactForm() {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell me about your project, team opportunity, or timeline..."
+            placeholder="Your message..."
             disabled={isSubmitting}
-            className={`w-full rounded-[10px] border bg-surface-2 px-4 py-2.5 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-y ${
-              errors.message ? "border-red-500/70" : "border-border hover:border-border-bright"
+            className={`w-full rounded-[8px] border bg-surface px-3.5 py-2 text-sm text-text-primary placeholder:text-text-tertiary transition-colors focus:outline-none focus:ring-2 focus:ring-accent resize-y ${
+              errors.message ? "border-red-500" : "border-border hover:border-border-hover"
             }`}
           />
           {errors.message && (
-            <p className="font-mono text-[11px] text-red-400 flex items-center gap-1 mt-1">
-              <AlertCircle className="h-3 w-3" />
-              <span>{errors.message}</span>
-            </p>
+            <p className="text-xs text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
 
@@ -260,20 +226,13 @@ export function ContactForm() {
         <Button
           type="submit"
           variant="primary"
-          size="lg"
+          size="md"
           disabled={isSubmitting}
-          className="w-full justify-center font-medium mt-2"
-          rightIcon={
-            isSubmitting ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Send className="h-4 w-4" />
-            )
-          }
+          className="w-full justify-center mt-2"
         >
-          {isSubmitting ? "Transmitting..." : "Send Message"}
+          {isSubmitting ? "Sending..." : "Send Message"}
         </Button>
       </form>
-    </Card>
+    </div>
   );
 }

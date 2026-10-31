@@ -12,37 +12,47 @@ test.describe("Portfolio Navigation & Accessibility", () => {
     await expect(skipLink).toHaveAttribute("href", "#main-content");
   });
 
-  test("should scroll to anchor sections from navbar", async ({ page }) => {
-    const projectsLink = page.locator("nav").getByRole("link", { name: /Projects/i });
+  test("should scroll to anchor sections from navbar", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await page.getByRole("button", { name: /Open menu/i }).click();
+    }
+    const projectsLink = page.getByRole("link", { name: "Projects" }).first();
     await projectsLink.click();
 
-    const projectsHeading = page.locator("#projects").getByRole("heading", { name: /Selected Work/i });
+    const projectsHeading = page.locator("#projects").getByRole("heading", { name: /Projects/i });
     await expect(projectsHeading).toBeVisible();
   });
 
-  test("should navigate to engineering notes blog page", async ({ page }) => {
-    const blogLink = page.locator("nav").getByRole("link", { name: /Notes/i });
-    await blogLink.click();
+  test("should navigate to experience section", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await page.getByRole("button", { name: /Open menu/i }).click();
+    }
+    const experienceLink = page.getByRole("link", { name: "Experience" }).first();
+    await experienceLink.click();
 
-    await expect(page).toHaveURL(/\/blog/);
-    await expect(page.getByRole("heading", { name: /Architecture & Insights/i })).toBeVisible();
+    const experienceHeading = page.locator("#experience").getByRole("heading", { name: /Experience/i });
+    await expect(experienceHeading).toBeVisible();
   });
 
-  test("should navigate to JAB LEATHER case study", async ({ page }) => {
-    const caseStudyBtn = page.getByRole("link", { name: /Case Study/i }).first();
-    await caseStudyBtn.click();
+  test("should navigate to skills section", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await page.getByRole("button", { name: /Open menu/i }).click();
+    }
+    const skillsLink = page.getByRole("link", { name: "Skills" }).first();
+    await skillsLink.click();
 
-    await expect(page).toHaveURL(/\/projects\/jab-leather/);
-    await expect(page.getByRole("heading", { name: /JAB LEATHER/i })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /Architecture Overview/i })).toBeVisible();
+    const skillsHeading = page.locator("#skills").getByRole("heading", { name: /Skills/i });
+    await expect(skillsHeading).toBeVisible();
   });
 
-  test("should open command palette on shortcut trigger", async ({ page }) => {
-    await page.keyboard.press("Control+k");
-    const cmdInput = page.getByPlaceholder(/Type a command, project, or section/i);
-    await expect(cmdInput).toBeVisible();
+  test("should navigate to contact section", async ({ page, isMobile }) => {
+    if (isMobile) {
+      await page.getByRole("button", { name: /Open menu/i }).click();
+    }
+    const contactLink = page.getByRole("link", { name: "Contact" }).first();
+    await contactLink.click();
 
-    await page.keyboard.press("Escape");
-    await expect(cmdInput).not.toBeVisible();
+    const contactHeading = page.locator("#contact").getByRole("heading", { name: /Contact/i });
+    await expect(contactHeading).toBeVisible();
   });
 });
