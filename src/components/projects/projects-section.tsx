@@ -24,7 +24,12 @@ const PROJECTS: ProjectItem[] = [
     title: "JAB LEATHER",
     description:
       "E-commerce platform with 14-category catalog, variants, cart, wishlist, checkout, USD/PKR currency engine, and Shopify-style admin.",
-    images: ["/projects/jab-leather.png", "/projects/jab-leather-admin.png"],
+    images: [
+      "/projects/jab-leather.png",
+      "/projects/jab-leather-catalog.png",
+      "/projects/jab-leather-categories.png",
+      "/projects/jab-leather-product.png",
+    ],
     tech: ["React", "Node", "Express", "PostgreSQL", "Supabase"],
     githubUrl: "https://github.com/Arham38/JABLEATHER.git",
   },
