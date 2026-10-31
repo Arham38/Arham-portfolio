@@ -110,7 +110,7 @@ const jsonLdPerson = {
   },
   sameAs: [
     "https://github.com/Arham38",
-    "https://www.linkedin.com/in/arham-bhatti",
+    "https://www.linkedin.com/in/arham-bhatti-b342062a0/",
   ],
   knowsAbout: [
     "Full-Stack Web Development",

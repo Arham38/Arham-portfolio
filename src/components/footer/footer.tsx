@@ -133,13 +133,13 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/arham-bhatti"
+                href="https://www.linkedin.com/in/arham-bhatti-b342062a0/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-accent transition-colors"
               >
                 <LinkedinIcon className="h-3.5 w-3.5" />
-                <span>linkedin.com/in/arham-bhatti</span>
+                <span>linkedin.com/in/arham-bhatti-b342062a0</span>
                 <ArrowUpRight className="h-3 w-3 ml-auto text-muted/60" />
               </a>
 

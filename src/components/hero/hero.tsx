@@ -100,7 +100,7 @@ export function Hero() {
                 </a>
                 <span className="text-border" aria-hidden="true">·</span>
                 <a
-                  href="https://www.linkedin.com/in/arham-bhatti"
+                  href="https://www.linkedin.com/in/arham-bhatti-b342062a0/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-accent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded px-1.5 py-1"

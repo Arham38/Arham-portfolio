@@ -37,7 +37,7 @@ const KNOWLEDGE_BASE: Array<{ keywords: string[]; answer: string }> = [
   {
     keywords: ["contact", "email", "reach", "message"],
     answer:
-      "You can email Arham directly at arhambhatti38@gmail.com, connect on LinkedIn (linkedin.com/in/arham-bhatti), or submit the interactive form in the Contact section of this page.",
+      "You can email Arham directly at arhambhatti38@gmail.com, connect on LinkedIn (https://www.linkedin.com/in/arham-bhatti-b342062a0/), or submit the interactive form in the Contact section of this page.",
   },
 ];
 

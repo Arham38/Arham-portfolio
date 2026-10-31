@@ -143,7 +143,7 @@ export function ContactSection() {
                   </a>
 
                   <a
-                    href="https://www.linkedin.com/in/arham-bhatti"
+                    href="https://www.linkedin.com/in/arham-bhatti-b342062a0/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3.5 rounded-[10px] bg-surface border border-border hover:border-accent/40 hover:bg-surface-2 transition-all group"
